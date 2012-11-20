@@ -1,0 +1,5 @@
+Network:002500:008420:0010930
+CPU:87:27:65
+DiskSpace:69:38:44:3:6
+DiskUsage:0:0:0:0:0
+MemoryUsage:74:0:953
