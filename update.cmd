@@ -253,4 +253,33 @@ ECHO  - Drawing Graphs ...
  LINE1:CpuUser#FCB514:CpuUser^
  LINE1:CpuTotal#FF0000:CpuTotal
 
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\DiskUsage.png --start -86400 -E^
+ DEF:DiskAvgQ=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQ:AVERAGE^
+ DEF:DiskAvgQRead=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQRead:AVERAGE^
+ DEF:DiskAvgQWrite=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQWrite:AVERAGE^
+ DEF:DiskAvgBytesRead=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgBytesRead:AVERAGE^
+ DEF:DiskAvgBytesWrite=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgBytesWrite:AVERAGE^
+ LINE1:DiskAvgQ#0000FF88:DiskAvgQ^
+ LINE1:DiskAvgQRead#FCB514:DiskAvgQRead^
+ LINE1:DiskAvgQWrite#551A8B:DiskAvgQWrite^
+ LINE1:DiskAvgBytesRead#8B1C62:DiskAvgBytesWrite^
+ LINE1:DiskAvgBytesWrite#FF0000:DiskAvgBytesWrite
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\DriveSpace.png --start -86400 -E^
+ DEF:DrvCSpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvCSpace:AVERAGE^
+ DEF:DrvDSpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvDSpace:AVERAGE^
+ DEF:DrvESpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvESpace:AVERAGE^
+ LINE1:DrvCSpace#0000FF88:DrvCSpace^
+ LINE1:DrvDSpace#FCB514:DrvDSpace^
+ LINE1:DrvESpace#FF0000:DrvESpace
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\Memory.png --start -86400 -E^
+ DEF:MemCommittedBytes=%GRAPHSOURCE%\rrds\Memory.rrd:MemCommittedBytes:AVERAGE^
+ DEF:MemPagesPerSec=%GRAPHSOURCE%\rrds\Memory.rrd:MemPagesPerSec:AVERAGE^
+ DEF:MemAvailMBytes=%GRAPHSOURCE%\rrds\Memory.rrd:MemAvailMBytes:AVERAGE^
+ LINE1:MemCommittedBytes#0000FF88:MemCommittedBytes^
+ LINE1:MemPagesPerSec#FCB514:MemPagesPerSec^
+ LINE1:MemAvailMBytes#FF0000:MemAvailMBytes
+
 :END
