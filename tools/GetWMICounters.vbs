@@ -103,7 +103,7 @@ Next
 '  Display Data 
 ' *****************************************************************************
 wscript.echo "Network:" & strBytesIn & ":" & strBytesOut & ":" & strBytesTotal
-wscript.echo "CPU:" & strPcTotalTime & ":" & strPcUserTime & ":" & strPcPrivTime
+wscript.echo "CPU:" & strPcPrivTime & ":" & strPcUserTime & ":" & strPcTotalTime
 wscript.echo "DiskSpace:" & strCDrive & ":" & strDdrive & ":" & strEdrive & ":" & strFdrive & ":" & strGdrive
 wscript.echo "DiskUsage:" & strAvgDiskQueueLength & ":" & strAvgDiskReadQueueLength & ":" & strAvgDiskWriteQueueLength & ":" & strDiskReadBytesPerSec & ":" & strDiskWriteBytesPerSec
 wscript.echo "MemoryUsage:" & strPcCommitedBytes & ":" & strPagesPerSec & ":" & strAvailableMBytes
