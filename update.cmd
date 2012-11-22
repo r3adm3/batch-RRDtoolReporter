@@ -9,14 +9,13 @@ REM  Set the source directory for the distribution, by extracting it from a CD
 REM  command
 REM ****************************************************************************
 REM FOR /F "delims=" %%I IN ('ECHO %CD%') DO SET SOURCE=%%I
-SET SOURCE=E:\PERFLOGS
+SET SOURCE=E:\SCHEDJOBS\PERFLOGS
 ECHO Setting SOURCE to %SOURCE%
 
 REM ****************************************************************************
 REM  Need a version of the source variable with an extra esc character
 REM ****************************************************************************
 SET GRAPHSOURCE=%SOURCE::=\:%
-
 
 REM ***************************************************************************
 REM  Summarising Data from Eventlogs from last 5 minutes. 
@@ -31,7 +30,6 @@ REM  Summarising Data from WMI
 REM ***************************************************************************
 cscript //nologo %SOURCE%\tools\GetWMICounters.vbs > %SOURCE%\WMIStats.txt
 
-GOTO SKIPIIS
 
 	REM ***************************************************************************
 	REM  Summarising Data from IIS
@@ -43,14 +41,28 @@ GOTO SKIPIIS
 	 SET YEAR=%%C
 	 SET YEAR=!YEAR:~2,2!
 	)
-	ECHO %YEAR%%MONTH%%DAY%
-	%SOURCE%\tools\logparser -i:iisw3c "select count(*) as num from %IISLOGSFOLDER%\*%YEAR%%MONTH%%DAY%.log where time > SUB(TO_LOCALTIME(SYSTEM_TIMESTAMP()), TIMESTAMP('0000-01-01 23:05', 'yyyy-MM-dd HH:mm')) and sc-status < 299" -recurse -iCheckpoint:%SOURCE%chkpts\200s.lpc -q >200s.txt
-	%SOURCE%\tools\logparser -i:iisw3c "select count(*) as num from %IISLOGSFOLDER%\*%YEAR%%MONTH%%DAY%.log where time > SUB(TO_LOCALTIME(SYSTEM_TIMESTAMP()), TIMESTAMP('0000-01-01 23:05', 'yyyy-MM-dd HH:mm')) and sc-status between 300 and 399" -recurse -iCheckpoint:%SOURCE%chkpts\300s.lpc -q >300s.txt
-	%SOURCE%\tools\logparser -i:iisw3c "select count(*) as num from %IISLOGSFOLDER%\*%YEAR%%MONTH%%DAY%.log where time > SUB(TO_LOCALTIME(SYSTEM_TIMESTAMP()), TIMESTAMP('0000-01-01 23:05', 'yyyy-MM-dd HH:mm')) and sc-status between 400 and 499" -recurse -iCheckpoint:%SOURCE%chkpts\400s.lpc -q >400s.txt
-	%SOURCE%\tools\logparser -i:iisw3c "select count(*) as num from %IISLOGSFOLDER%\*%YEAR%%MONTH%%DAY%.log where time > SUB(TO_LOCALTIME(SYSTEM_TIMESTAMP()), TIMESTAMP('0000-01-01 23:05', 'yyyy-MM-dd HH:mm')) and sc-status > 499" -recurse -iCheckpoint:%SOURCE%chkpts\200s.lpc -q >500s.txt
-	GOTO END
 
-:SKIPIIS
+	echo %YEAR%%MONTH%%DAY% - %IISLOGSFOLDER%\*%YEAR%%MONTH%%DAY%.log
+	
+	%SOURCE%\tools\logparser -i:iisw3c "select count(*) as num from %IISLOGSFOLDER%\*ex%YEAR%%MONTH%%DAY%.log where time > SUB(SYSTEM_TIME(), TIMESTAMP('00:05', 'hh:mm')) and sc-status < 299" -recurse -iCheckpoint:%SOURCE%\chkpts\200s.lpc -q >%SOURCE%\200s.txt
+	%SOURCE%\tools\logparser -i:iisw3c "select count(*) as num from %IISLOGSFOLDER%\*ex%YEAR%%MONTH%%DAY%.log where time > SUB(SYSTEM_TIME(), TIMESTAMP('00:05', 'hh:mm')) and sc-status between 300 and 399" -recurse -iCheckpoint:%SOURCE%\chkpts\300s.lpc -q >%SOURCE%\300s.txt
+	%SOURCE%\tools\logparser -i:iisw3c "select count(*) as num from %IISLOGSFOLDER%\*ex%YEAR%%MONTH%%DAY%.log where time > SUB(SYSTEM_TIME(), TIMESTAMP('00:05', 'hh:mm')) and sc-status between 400 and 499" -recurse -iCheckpoint:%SOURCE%\chkpts\400s.lpc -q >%SOURCE%\400s.txt
+	%SOURCE%\tools\logparser -i:iisw3c "select count(*) as num from %IISLOGSFOLDER%\*ex%YEAR%%MONTH%%DAY%.log where time > SUB(SYSTEM_TIME(), TIMESTAMP('00:05', 'hh:mm')) and sc-status > 499" -recurse -iCheckpoint:%SOURCE%\chkpts\500s.lpc -q >%SOURCE%\500s.txt
+	
+
+REM ***************************************************************************
+REM Analyse IISStats 
+REM ***************************************************************************
+SET TWOHUNDREDS=0	
+SET THREEHUNDREDS=0
+SET FOURHUNDREDS=0
+SET FIVEHUNDREDS=0
+FOR /F "tokens=1" %%i IN (%SOURCE%\200s.txt) DO SET TWOHUNDREDS=%%i
+FOR /F "tokens=1" %%i IN (%SOURCE%\300s.txt) DO SET THREEHUNDREDS=%%i
+FOR /F "tokens=1" %%i IN (%SOURCE%\400s.txt) DO SET FOURHUNDREDS=%%i
+FOR /F "tokens=1" %%i IN (%SOURCE%\500s.txt) DO SET FIVEHUNDREDS=%%i
+
+ECHO %date% %time% - %TWOHUNDREDS%:%THREEHUNDREDS%:%FOURHUNDREDS%:%FIVEHUNDREDS% >> %source%\http.log
 
 REM ***************************************************************************
 REM Analyse WMIStats 
@@ -191,6 +203,14 @@ REM Update MemoryUsage log rrd's
 REM ***************************************************************************
 %SOURCE%\tools\rrdtool.exe update %SOURCE%\rrds\Memory.rrd N:%MEMCOMMITTEDBYTES%:%MEMPAGESPERSEC%:%MEMAVAILMBYTES%
 
+
+REM ***************************************************************************
+REM Update MemoryUsage log rrd's
+REM ***************************************************************************
+%SOURCE%\tools\rrdtool.exe update %SOURCE%\rrds\IIS.rrd N:%TWOHUNDREDS%:%THREEHUNDREDS%:%FOURHUNDREDS%:%FIVEHUNDREDS%
+
+
+
 REM ***************************************************************************
 REM Draw MemoryUsage log graphs
 REM ***************************************************************************
@@ -282,4 +302,14 @@ ECHO  - Drawing Graphs ...
  LINE1:MemPagesPerSec#FCB514:MemPagesPerSec^
  LINE1:MemAvailMBytes#FF0000:MemAvailMBytes
 
+ %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\IIS.png --start -86400 -E^
+ DEF:Twos=%GRAPHSOURCE%\rrds\IIS.rrd:Twos:AVERAGE^
+ DEF:Threes=%GRAPHSOURCE%\rrds\IIS.rrd:Threes:AVERAGE^
+ DEF:Fours=%GRAPHSOURCE%\rrds\IIS.rrd:Fours:AVERAGE^
+ DEF:Fives=%GRAPHSOURCE%\rrds\IIS.rrd:Fives:AVERAGE^
+ LINE1:Twos#0000FF88:Twos^
+ LINE1:Threes#FCB514:Threes^
+ LINE1:Fours#8B1C62:Fours^
+ LINE1:Fives#FF0000:Fives
+ 
 :END
