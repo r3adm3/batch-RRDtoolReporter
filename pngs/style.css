@@ -1,0 +1,21 @@
+h2{
+  font-family:Segoe UI, Helvetica, Arial, Verdana, sans-serif;
+  padding:5px;
+  background-color: #369;
+color: #fff;
+font-size: medium;
+}
+li{
+display: block;
+padding: 1px;
+padding-left: 10px;
+width: 280px;
+background-color: #FFF;
+border-bottom: 1px solid #DDF;
+font-size:small;
+}
+body{
+  -webkit-text-size-adjust:none;
+  font-family:Helvetica, Arial, Verdana, sans-serif;
+  padding:5px;
+}
