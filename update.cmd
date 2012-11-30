@@ -160,7 +160,7 @@ SET SysERR=0
 SET SysAUDITFAIL=0
 SET SysAUDITSUCCESS=0
 SET SysSUCCESS=0
-FOR /F "tokens=1,2" %%i in (Syssum.txt) DO (
+FOR /F "tokens=1,2" %%i in (%SOURCE%\Syssum.txt) DO (
   IF %%i==0 SET SysSUCCESS=%%j
   IF %%i==1 SET SysERR=%%j
   IF %%i==2 SET SysWARN=%%j
