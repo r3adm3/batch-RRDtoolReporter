@@ -16,6 +16,9 @@ font-size:small;
 }
 body{
   -webkit-text-size-adjust:none;
-  font-family:Helvetica, Arial, Verdana, sans-serif;
+  font-family:Segoe UI,Helvetica, Arial, Verdana, sans-serif;
   padding:5px;
+}
+a{
+color: #fff;
 }

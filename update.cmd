@@ -215,7 +215,7 @@ REM ***************************************************************************
 REM Draw MemoryUsage log graphs
 REM ***************************************************************************
 ECHO  - Drawing Graphs ...
-%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\AppEvents.png --start -86400 -E^
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\dailies\AppEvents.png --start -86400 -E^
  DEF:AppInfo=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppInfo:AVERAGE^
  DEF:AppWarn=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppWarn:AVERAGE^
  DEF:AppErr=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppErr:AVERAGE^
@@ -229,7 +229,7 @@ ECHO  - Drawing Graphs ...
  LINE1:AppAuditSuccess#8B1C62:AuditSuccess^
  LINE1:AppSuccess#00FF00:Success
 
-%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\SysEvents.png --start -86400 -E^
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\dailies\SysEvents.png --start -86400 -E^
  DEF:SysInfo=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysInfo:AVERAGE^
  DEF:SysWarn=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysWarn:AVERAGE^
  DEF:SysErr=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysErr:AVERAGE^
@@ -243,7 +243,7 @@ ECHO  - Drawing Graphs ...
  LINE1:SysAuditSuccess#8B1C62:AuditSuccess^
  LINE1:SysSuccess#00FF00:Success
 
-%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\SecEvents.png --start -86400 -E^
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\dailies\SecEvents.png --start -86400 -E^
  DEF:SecInfo=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecInfo:AVERAGE^
  DEF:SecWarn=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecWarn:AVERAGE^
  DEF:SecErr=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecErr:AVERAGE^
@@ -257,7 +257,7 @@ ECHO  - Drawing Graphs ...
  LINE1:SecAuditSuccess#8B1C62:AuditSuccess^
  LINE1:SecSuccess#00FF00:Success
 
- %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\Network.png --start -86400 -E^
+ %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\dailies\Network.png --start -86400 -E^
  DEF:BytesIn=%GRAPHSOURCE%\rrds\Network.rrd:BytesIn:AVERAGE^
  DEF:BytesOut=%GRAPHSOURCE%\rrds\Network.rrd:BytesOut:AVERAGE^
  DEF:BytesTotal=%GRAPHSOURCE%\rrds\Network.rrd:BytesTotal:AVERAGE^
@@ -265,7 +265,7 @@ ECHO  - Drawing Graphs ...
  LINE1:BytesOut#FCB514:BytesOut^
  LINE1:BytesTotal#00FF00:BytesTotal
 
-%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\CPU.png --start -86400 -E^
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\dailies\CPU.png --start -86400 -E^
  DEF:CpuPriv=%GRAPHSOURCE%\rrds\CPU.rrd:CpuPriv:AVERAGE^
  DEF:CpuUser=%GRAPHSOURCE%\rrds\CPU.rrd:CpuUser:AVERAGE^
  DEF:CpuTotal=%GRAPHSOURCE%\rrds\CPU.rrd:CpuTotal:AVERAGE^
@@ -274,7 +274,7 @@ ECHO  - Drawing Graphs ...
  LINE1:CpuTotal#FF0000:CpuTotal
 
 
-%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\DiskUsage.png --start -86400 -E^
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\dailies\DiskUsage.png --start -86400 -E^
  DEF:DiskAvgQ=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQ:AVERAGE^
  DEF:DiskAvgQRead=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQRead:AVERAGE^
  DEF:DiskAvgQWrite=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQWrite:AVERAGE^
@@ -286,7 +286,7 @@ ECHO  - Drawing Graphs ...
  LINE1:DiskAvgBytesRead#8B1C62:DiskAvgBytesWrite^
  LINE1:DiskAvgBytesWrite#FF0000:DiskAvgBytesWrite
 
-%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\DriveSpace.png --start -86400 -E^
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\dailies\DriveSpace.png --start -86400 -E^
  DEF:DrvCSpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvCSpace:AVERAGE^
  DEF:DrvDSpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvDSpace:AVERAGE^
  DEF:DrvESpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvESpace:AVERAGE^
@@ -294,7 +294,7 @@ ECHO  - Drawing Graphs ...
  LINE1:DrvDSpace#FCB514:DrvDSpace^
  LINE1:DrvESpace#FF0000:DrvESpace
 
-%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\Memory.png --start -86400 -E^
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\dailies\Memory.png --start -86400 -E^
  DEF:MemCommittedBytes=%GRAPHSOURCE%\rrds\Memory.rrd:MemCommittedBytes:AVERAGE^
  DEF:MemPagesPerSec=%GRAPHSOURCE%\rrds\Memory.rrd:MemPagesPerSec:AVERAGE^
  DEF:MemAvailMBytes=%GRAPHSOURCE%\rrds\Memory.rrd:MemAvailMBytes:AVERAGE^
@@ -302,7 +302,7 @@ ECHO  - Drawing Graphs ...
  LINE1:MemPagesPerSec#FCB514:MemPagesPerSec^
  LINE1:MemAvailMBytes#FF0000:MemAvailMBytes
 
- %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\IIS.png --start -86400 -E^
+ %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\dailies\IIS.png --start -86400 -E^
  DEF:Twos=%GRAPHSOURCE%\rrds\IIS.rrd:Twos:AVERAGE^
  DEF:Threes=%GRAPHSOURCE%\rrds\IIS.rrd:Threes:AVERAGE^
  DEF:Fours=%GRAPHSOURCE%\rrds\IIS.rrd:Fours:AVERAGE^
@@ -312,7 +312,7 @@ ECHO  - Drawing Graphs ...
  LINE1:Fours#8B1C62:Fours^
  LINE1:Fives#FF0000:Fives
  
- %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\AppEventsW.png --start -1w -E^
+ %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\weeklies\AppEvents.png --start -1w -E^
  DEF:AppInfo=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppInfo:AVERAGE^
  DEF:AppWarn=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppWarn:AVERAGE^
  DEF:AppErr=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppErr:AVERAGE^
@@ -326,7 +326,7 @@ ECHO  - Drawing Graphs ...
  LINE1:AppAuditSuccess#8B1C62:AuditSuccess^
  LINE1:AppSuccess#00FF00:Success
 
-%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\SysEventsW.png --start -1w -E^
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\weeklies\SysEvents.png --start -1w -E^
  DEF:SysInfo=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysInfo:AVERAGE^
  DEF:SysWarn=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysWarn:AVERAGE^
  DEF:SysErr=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysErr:AVERAGE^
@@ -340,7 +340,7 @@ ECHO  - Drawing Graphs ...
  LINE1:SysAuditSuccess#8B1C62:AuditSuccess^
  LINE1:SysSuccess#00FF00:Success
 
-%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\SecEventsW.png --start -1w -E^
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\weeklies\SecEvents.png --start -1w -E^
  DEF:SecInfo=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecInfo:AVERAGE^
  DEF:SecWarn=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecWarn:AVERAGE^
  DEF:SecErr=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecErr:AVERAGE^
@@ -354,7 +354,7 @@ ECHO  - Drawing Graphs ...
  LINE1:SecAuditSuccess#8B1C62:AuditSuccess^
  LINE1:SecSuccess#00FF00:Success
 
- %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\NetworkW.png --start -1w -E^
+ %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\weeklies\Network.png --start -1w -E^
  DEF:BytesIn=%GRAPHSOURCE%\rrds\Network.rrd:BytesIn:AVERAGE^
  DEF:BytesOut=%GRAPHSOURCE%\rrds\Network.rrd:BytesOut:AVERAGE^
  DEF:BytesTotal=%GRAPHSOURCE%\rrds\Network.rrd:BytesTotal:AVERAGE^
@@ -362,7 +362,7 @@ ECHO  - Drawing Graphs ...
  LINE1:BytesOut#FCB514:BytesOut^
  LINE1:BytesTotal#00FF00:BytesTotal
 
-%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\CPUW.png --start -1w -E^
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\weeklies\CPU.png --start -1w -E^
  DEF:CpuPriv=%GRAPHSOURCE%\rrds\CPU.rrd:CpuPriv:AVERAGE^
  DEF:CpuUser=%GRAPHSOURCE%\rrds\CPU.rrd:CpuUser:AVERAGE^
  DEF:CpuTotal=%GRAPHSOURCE%\rrds\CPU.rrd:CpuTotal:AVERAGE^
@@ -371,7 +371,7 @@ ECHO  - Drawing Graphs ...
  LINE1:CpuTotal#FF0000:CpuTotal
 
 
-%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\DiskUsageW.png --start -1w -E^
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\weeklies\DiskUsage.png --start -1w -E^
  DEF:DiskAvgQ=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQ:AVERAGE^
  DEF:DiskAvgQRead=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQRead:AVERAGE^
  DEF:DiskAvgQWrite=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQWrite:AVERAGE^
@@ -383,7 +383,7 @@ ECHO  - Drawing Graphs ...
  LINE1:DiskAvgBytesRead#8B1C62:DiskAvgBytesWrite^
  LINE1:DiskAvgBytesWrite#FF0000:DiskAvgBytesWrite
 
-%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\DriveSpaceW.png --start -1w -E^
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\weeklies\DriveSpace.png --start -1w -E^
  DEF:DrvCSpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvCSpace:AVERAGE^
  DEF:DrvDSpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvDSpace:AVERAGE^
  DEF:DrvESpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvESpace:AVERAGE^
@@ -391,7 +391,7 @@ ECHO  - Drawing Graphs ...
  LINE1:DrvDSpace#FCB514:DrvDSpace^
  LINE1:DrvESpace#FF0000:DrvESpace
 
-%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\MemoryW.png --start -1w -E^
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\weeklies\Memory.png --start -1w -E^
  DEF:MemCommittedBytes=%GRAPHSOURCE%\rrds\Memory.rrd:MemCommittedBytes:AVERAGE^
  DEF:MemPagesPerSec=%GRAPHSOURCE%\rrds\Memory.rrd:MemPagesPerSec:AVERAGE^
  DEF:MemAvailMBytes=%GRAPHSOURCE%\rrds\Memory.rrd:MemAvailMBytes:AVERAGE^
@@ -399,7 +399,298 @@ ECHO  - Drawing Graphs ...
  LINE1:MemPagesPerSec#FCB514:MemPagesPerSec^
  LINE1:MemAvailMBytes#FF0000:MemAvailMBytes
 
- %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\IISW.png --start -1w -E^
+ %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\weeklies\IIS.png --start -1w -E^
+ DEF:Twos=%GRAPHSOURCE%\rrds\IIS.rrd:Twos:AVERAGE^
+ DEF:Threes=%GRAPHSOURCE%\rrds\IIS.rrd:Threes:AVERAGE^
+ DEF:Fours=%GRAPHSOURCE%\rrds\IIS.rrd:Fours:AVERAGE^
+ DEF:Fives=%GRAPHSOURCE%\rrds\IIS.rrd:Fives:AVERAGE^
+ LINE1:Twos#0000FF88:Twos^
+ LINE1:Threes#FCB514:Threes^
+ LINE1:Fours#8B1C62:Fours^
+ LINE1:Fives#FF0000:Fives
+ 
+  %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\monthlies\AppEvents.png --start -1m -E^
+ DEF:AppInfo=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppInfo:AVERAGE^
+ DEF:AppWarn=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppWarn:AVERAGE^
+ DEF:AppErr=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppErr:AVERAGE^
+ DEF:AppAuditFail=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppAuditFail:AVERAGE^
+ DEF:AppAuditSuccess=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppAuditSuccess:AVERAGE^
+ DEF:AppSuccess=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppSuccess:AVERAGE^
+ AREA:AppInfo#0000FF88:Infos^
+ LINE1:AppWarn#FCB514:Warning^
+ LINE1:AppErr#FF0000:Errors^
+ LINE1:AppAuditFail#551A8B:AuditFailures^
+ LINE1:AppAuditSuccess#8B1C62:AuditSuccess^
+ LINE1:AppSuccess#00FF00:Success
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\monthlies\SysEvents.png --start -1m -E^
+ DEF:SysInfo=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysInfo:AVERAGE^
+ DEF:SysWarn=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysWarn:AVERAGE^
+ DEF:SysErr=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysErr:AVERAGE^
+ DEF:SysAuditFail=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysAuditFail:AVERAGE^
+ DEF:SysAuditSuccess=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysAuditSuccess:AVERAGE^
+ DEF:SysSuccess=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysSuccess:AVERAGE^
+ AREA:SysInfo#0000FF88:Infos^
+ LINE1:SysWarn#FCB514:Warning^
+ LINE1:SysErr#FF0000:Errors^
+ LINE1:SysAuditFail#551A8B:AuditFailures^
+ LINE1:SysAuditSuccess#8B1C62:AuditSuccess^
+ LINE1:SysSuccess#00FF00:Success
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\monthlies\SecEvents.png --start -1m -E^
+ DEF:SecInfo=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecInfo:AVERAGE^
+ DEF:SecWarn=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecWarn:AVERAGE^
+ DEF:SecErr=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecErr:AVERAGE^
+ DEF:SecAuditFail=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecAuditFail:AVERAGE^
+ DEF:SecAuditSuccess=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecAuditSuccess:AVERAGE^
+ DEF:SecSuccess=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecSuccess:AVERAGE^
+ AREA:SecInfo#0000FF88:Infos^
+ LINE1:SecWarn#FCB514:Warning^
+ LINE1:SecErr#FF0000:Errors^
+ LINE1:SecAuditFail#551A8B:AuditFailures^
+ LINE1:SecAuditSuccess#8B1C62:AuditSuccess^
+ LINE1:SecSuccess#00FF00:Success
+
+ %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\monthlies\Network.png --start -1m -E^
+ DEF:BytesIn=%GRAPHSOURCE%\rrds\Network.rrd:BytesIn:AVERAGE^
+ DEF:BytesOut=%GRAPHSOURCE%\rrds\Network.rrd:BytesOut:AVERAGE^
+ DEF:BytesTotal=%GRAPHSOURCE%\rrds\Network.rrd:BytesTotal:AVERAGE^
+ LINE1:BytesIn#0000FF88:BytesIn^
+ LINE1:BytesOut#FCB514:BytesOut^
+ LINE1:BytesTotal#00FF00:BytesTotal
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\monthlies\CPU.png --start -1m -E^
+ DEF:CpuPriv=%GRAPHSOURCE%\rrds\CPU.rrd:CpuPriv:AVERAGE^
+ DEF:CpuUser=%GRAPHSOURCE%\rrds\CPU.rrd:CpuUser:AVERAGE^
+ DEF:CpuTotal=%GRAPHSOURCE%\rrds\CPU.rrd:CpuTotal:AVERAGE^
+ LINE1:CpuPriv#0000FF88:CpuPriv^
+ LINE1:CpuUser#FCB514:CpuUser^
+ LINE1:CpuTotal#FF0000:CpuTotal
+
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\monthlies\DiskUsage.png --start -1m -E^
+ DEF:DiskAvgQ=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQ:AVERAGE^
+ DEF:DiskAvgQRead=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQRead:AVERAGE^
+ DEF:DiskAvgQWrite=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQWrite:AVERAGE^
+ DEF:DiskAvgBytesRead=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgBytesRead:AVERAGE^
+ DEF:DiskAvgBytesWrite=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgBytesWrite:AVERAGE^
+ LINE1:DiskAvgQ#0000FF88:DiskAvgQ^
+ LINE1:DiskAvgQRead#FCB514:DiskAvgQRead^
+ LINE1:DiskAvgQWrite#551A8B:DiskAvgQWrite^
+ LINE1:DiskAvgBytesRead#8B1C62:DiskAvgBytesWrite^
+ LINE1:DiskAvgBytesWrite#FF0000:DiskAvgBytesWrite
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\monthlies\DriveSpace.png --start -1m -E^
+ DEF:DrvCSpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvCSpace:AVERAGE^
+ DEF:DrvDSpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvDSpace:AVERAGE^
+ DEF:DrvESpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvESpace:AVERAGE^
+ LINE1:DrvCSpace#0000FF88:DrvCSpace^
+ LINE1:DrvDSpace#FCB514:DrvDSpace^
+ LINE1:DrvESpace#FF0000:DrvESpace
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\monthlies\Memory.png --start -1m -E^
+ DEF:MemCommittedBytes=%GRAPHSOURCE%\rrds\Memory.rrd:MemCommittedBytes:AVERAGE^
+ DEF:MemPagesPerSec=%GRAPHSOURCE%\rrds\Memory.rrd:MemPagesPerSec:AVERAGE^
+ DEF:MemAvailMBytes=%GRAPHSOURCE%\rrds\Memory.rrd:MemAvailMBytes:AVERAGE^
+ LINE1:MemCommittedBytes#0000FF88:MemCommittedBytes^
+ LINE1:MemPagesPerSec#FCB514:MemPagesPerSec^
+ LINE1:MemAvailMBytes#FF0000:MemAvailMBytes
+
+ %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\monthlies\IIS.png --start -1m -E^
+ DEF:Twos=%GRAPHSOURCE%\rrds\IIS.rrd:Twos:AVERAGE^
+ DEF:Threes=%GRAPHSOURCE%\rrds\IIS.rrd:Threes:AVERAGE^
+ DEF:Fours=%GRAPHSOURCE%\rrds\IIS.rrd:Fours:AVERAGE^
+ DEF:Fives=%GRAPHSOURCE%\rrds\IIS.rrd:Fives:AVERAGE^
+ LINE1:Twos#0000FF88:Twos^
+ LINE1:Threes#FCB514:Threes^
+ LINE1:Fours#8B1C62:Fours^
+ LINE1:Fives#FF0000:Fives
+ 
+  %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\quarterlies\AppEvents.png --start -3m -E^
+ DEF:AppInfo=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppInfo:AVERAGE^
+ DEF:AppWarn=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppWarn:AVERAGE^
+ DEF:AppErr=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppErr:AVERAGE^
+ DEF:AppAuditFail=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppAuditFail:AVERAGE^
+ DEF:AppAuditSuccess=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppAuditSuccess:AVERAGE^
+ DEF:AppSuccess=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppSuccess:AVERAGE^
+ AREA:AppInfo#0000FF88:Infos^
+ LINE1:AppWarn#FCB514:Warning^
+ LINE1:AppErr#FF0000:Errors^
+ LINE1:AppAuditFail#551A8B:AuditFailures^
+ LINE1:AppAuditSuccess#8B1C62:AuditSuccess^
+ LINE1:AppSuccess#00FF00:Success
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\quarterlies\SysEvents.png --start -3m -E^
+ DEF:SysInfo=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysInfo:AVERAGE^
+ DEF:SysWarn=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysWarn:AVERAGE^
+ DEF:SysErr=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysErr:AVERAGE^
+ DEF:SysAuditFail=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysAuditFail:AVERAGE^
+ DEF:SysAuditSuccess=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysAuditSuccess:AVERAGE^
+ DEF:SysSuccess=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysSuccess:AVERAGE^
+ AREA:SysInfo#0000FF88:Infos^
+ LINE1:SysWarn#FCB514:Warning^
+ LINE1:SysErr#FF0000:Errors^
+ LINE1:SysAuditFail#551A8B:AuditFailures^
+ LINE1:SysAuditSuccess#8B1C62:AuditSuccess^
+ LINE1:SysSuccess#00FF00:Success
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\quarterlies\SecEvents.png --start -3m -E^
+ DEF:SecInfo=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecInfo:AVERAGE^
+ DEF:SecWarn=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecWarn:AVERAGE^
+ DEF:SecErr=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecErr:AVERAGE^
+ DEF:SecAuditFail=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecAuditFail:AVERAGE^
+ DEF:SecAuditSuccess=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecAuditSuccess:AVERAGE^
+ DEF:SecSuccess=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecSuccess:AVERAGE^
+ AREA:SecInfo#0000FF88:Infos^
+ LINE1:SecWarn#FCB514:Warning^
+ LINE1:SecErr#FF0000:Errors^
+ LINE1:SecAuditFail#551A8B:AuditFailures^
+ LINE1:SecAuditSuccess#8B1C62:AuditSuccess^
+ LINE1:SecSuccess#00FF00:Success
+
+ %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\quarterlies\Network.png --start -3m -E^
+ DEF:BytesIn=%GRAPHSOURCE%\rrds\Network.rrd:BytesIn:AVERAGE^
+ DEF:BytesOut=%GRAPHSOURCE%\rrds\Network.rrd:BytesOut:AVERAGE^
+ DEF:BytesTotal=%GRAPHSOURCE%\rrds\Network.rrd:BytesTotal:AVERAGE^
+ LINE1:BytesIn#0000FF88:BytesIn^
+ LINE1:BytesOut#FCB514:BytesOut^
+ LINE1:BytesTotal#00FF00:BytesTotal
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\quarterlies\CPU.png --start -3m -E^
+ DEF:CpuPriv=%GRAPHSOURCE%\rrds\CPU.rrd:CpuPriv:AVERAGE^
+ DEF:CpuUser=%GRAPHSOURCE%\rrds\CPU.rrd:CpuUser:AVERAGE^
+ DEF:CpuTotal=%GRAPHSOURCE%\rrds\CPU.rrd:CpuTotal:AVERAGE^
+ LINE1:CpuPriv#0000FF88:CpuPriv^
+ LINE1:CpuUser#FCB514:CpuUser^
+ LINE1:CpuTotal#FF0000:CpuTotal
+
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\quarterlies\DiskUsage.png --start -3m -E^
+ DEF:DiskAvgQ=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQ:AVERAGE^
+ DEF:DiskAvgQRead=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQRead:AVERAGE^
+ DEF:DiskAvgQWrite=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQWrite:AVERAGE^
+ DEF:DiskAvgBytesRead=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgBytesRead:AVERAGE^
+ DEF:DiskAvgBytesWrite=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgBytesWrite:AVERAGE^
+ LINE1:DiskAvgQ#0000FF88:DiskAvgQ^
+ LINE1:DiskAvgQRead#FCB514:DiskAvgQRead^
+ LINE1:DiskAvgQWrite#551A8B:DiskAvgQWrite^
+ LINE1:DiskAvgBytesRead#8B1C62:DiskAvgBytesWrite^
+ LINE1:DiskAvgBytesWrite#FF0000:DiskAvgBytesWrite
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\quarterlies\DriveSpace.png --start -3m -E^
+ DEF:DrvCSpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvCSpace:AVERAGE^
+ DEF:DrvDSpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvDSpace:AVERAGE^
+ DEF:DrvESpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvESpace:AVERAGE^
+ LINE1:DrvCSpace#0000FF88:DrvCSpace^
+ LINE1:DrvDSpace#FCB514:DrvDSpace^
+ LINE1:DrvESpace#FF0000:DrvESpace
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\quarterlies\Memory.png --start -3m -E^
+ DEF:MemCommittedBytes=%GRAPHSOURCE%\rrds\Memory.rrd:MemCommittedBytes:AVERAGE^
+ DEF:MemPagesPerSec=%GRAPHSOURCE%\rrds\Memory.rrd:MemPagesPerSec:AVERAGE^
+ DEF:MemAvailMBytes=%GRAPHSOURCE%\rrds\Memory.rrd:MemAvailMBytes:AVERAGE^
+ LINE1:MemCommittedBytes#0000FF88:MemCommittedBytes^
+ LINE1:MemPagesPerSec#FCB514:MemPagesPerSec^
+ LINE1:MemAvailMBytes#FF0000:MemAvailMBytes
+
+ %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\quarterlies\IIS.png --start -3m -E^
+ DEF:Twos=%GRAPHSOURCE%\rrds\IIS.rrd:Twos:AVERAGE^
+ DEF:Threes=%GRAPHSOURCE%\rrds\IIS.rrd:Threes:AVERAGE^
+ DEF:Fours=%GRAPHSOURCE%\rrds\IIS.rrd:Fours:AVERAGE^
+ DEF:Fives=%GRAPHSOURCE%\rrds\IIS.rrd:Fives:AVERAGE^
+ LINE1:Twos#0000FF88:Twos^
+ LINE1:Threes#FCB514:Threes^
+ LINE1:Fours#8B1C62:Fours^
+ LINE1:Fives#FF0000:Fives
+ 
+  %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\yearlies\AppEvents.png --start -1y -E^
+ DEF:AppInfo=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppInfo:AVERAGE^
+ DEF:AppWarn=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppWarn:AVERAGE^
+ DEF:AppErr=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppErr:AVERAGE^
+ DEF:AppAuditFail=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppAuditFail:AVERAGE^
+ DEF:AppAuditSuccess=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppAuditSuccess:AVERAGE^
+ DEF:AppSuccess=%GRAPHSOURCE%\rrds\AppEvents.rrd:AppSuccess:AVERAGE^
+ AREA:AppInfo#0000FF88:Infos^
+ LINE1:AppWarn#FCB514:Warning^
+ LINE1:AppErr#FF0000:Errors^
+ LINE1:AppAuditFail#551A8B:AuditFailures^
+ LINE1:AppAuditSuccess#8B1C62:AuditSuccess^
+ LINE1:AppSuccess#00FF00:Success
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\yearlies\SysEvents.png --start -1y -E^
+ DEF:SysInfo=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysInfo:AVERAGE^
+ DEF:SysWarn=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysWarn:AVERAGE^
+ DEF:SysErr=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysErr:AVERAGE^
+ DEF:SysAuditFail=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysAuditFail:AVERAGE^
+ DEF:SysAuditSuccess=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysAuditSuccess:AVERAGE^
+ DEF:SysSuccess=%GRAPHSOURCE%\rrds\SysEvents.rrd:SysSuccess:AVERAGE^
+ AREA:SysInfo#0000FF88:Infos^
+ LINE1:SysWarn#FCB514:Warning^
+ LINE1:SysErr#FF0000:Errors^
+ LINE1:SysAuditFail#551A8B:AuditFailures^
+ LINE1:SysAuditSuccess#8B1C62:AuditSuccess^
+ LINE1:SysSuccess#00FF00:Success
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\yearlies\SecEvents.png --start -1y -E^
+ DEF:SecInfo=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecInfo:AVERAGE^
+ DEF:SecWarn=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecWarn:AVERAGE^
+ DEF:SecErr=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecErr:AVERAGE^
+ DEF:SecAuditFail=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecAuditFail:AVERAGE^
+ DEF:SecAuditSuccess=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecAuditSuccess:AVERAGE^
+ DEF:SecSuccess=%GRAPHSOURCE%\rrds\SecEvents.rrd:SecSuccess:AVERAGE^
+ AREA:SecInfo#0000FF88:Infos^
+ LINE1:SecWarn#FCB514:Warning^
+ LINE1:SecErr#FF0000:Errors^
+ LINE1:SecAuditFail#551A8B:AuditFailures^
+ LINE1:SecAuditSuccess#8B1C62:AuditSuccess^
+ LINE1:SecSuccess#00FF00:Success
+
+ %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\yearlies\Network.png --start -1y -E^
+ DEF:BytesIn=%GRAPHSOURCE%\rrds\Network.rrd:BytesIn:AVERAGE^
+ DEF:BytesOut=%GRAPHSOURCE%\rrds\Network.rrd:BytesOut:AVERAGE^
+ DEF:BytesTotal=%GRAPHSOURCE%\rrds\Network.rrd:BytesTotal:AVERAGE^
+ LINE1:BytesIn#0000FF88:BytesIn^
+ LINE1:BytesOut#FCB514:BytesOut^
+ LINE1:BytesTotal#00FF00:BytesTotal
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\yearlies\CPU.png --start -1y -E^
+ DEF:CpuPriv=%GRAPHSOURCE%\rrds\CPU.rrd:CpuPriv:AVERAGE^
+ DEF:CpuUser=%GRAPHSOURCE%\rrds\CPU.rrd:CpuUser:AVERAGE^
+ DEF:CpuTotal=%GRAPHSOURCE%\rrds\CPU.rrd:CpuTotal:AVERAGE^
+ LINE1:CpuPriv#0000FF88:CpuPriv^
+ LINE1:CpuUser#FCB514:CpuUser^
+ LINE1:CpuTotal#FF0000:CpuTotal
+
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\yearlies\DiskUsage.png --start -1y -E^
+ DEF:DiskAvgQ=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQ:AVERAGE^
+ DEF:DiskAvgQRead=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQRead:AVERAGE^
+ DEF:DiskAvgQWrite=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgQWrite:AVERAGE^
+ DEF:DiskAvgBytesRead=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgBytesRead:AVERAGE^
+ DEF:DiskAvgBytesWrite=%GRAPHSOURCE%\rrds\DriveUsage.rrd:DiskAvgBytesWrite:AVERAGE^
+ LINE1:DiskAvgQ#0000FF88:DiskAvgQ^
+ LINE1:DiskAvgQRead#FCB514:DiskAvgQRead^
+ LINE1:DiskAvgQWrite#551A8B:DiskAvgQWrite^
+ LINE1:DiskAvgBytesRead#8B1C62:DiskAvgBytesWrite^
+ LINE1:DiskAvgBytesWrite#FF0000:DiskAvgBytesWrite
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\yearlies\DriveSpace.png --start -1y -E^
+ DEF:DrvCSpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvCSpace:AVERAGE^
+ DEF:DrvDSpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvDSpace:AVERAGE^
+ DEF:DrvESpace=%GRAPHSOURCE%\rrds\DriveSpace.rrd:DrvESpace:AVERAGE^
+ LINE1:DrvCSpace#0000FF88:DrvCSpace^
+ LINE1:DrvDSpace#FCB514:DrvDSpace^
+ LINE1:DrvESpace#FF0000:DrvESpace
+
+%SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\yearlies\Memory.png --start -1y -E^
+ DEF:MemCommittedBytes=%GRAPHSOURCE%\rrds\Memory.rrd:MemCommittedBytes:AVERAGE^
+ DEF:MemPagesPerSec=%GRAPHSOURCE%\rrds\Memory.rrd:MemPagesPerSec:AVERAGE^
+ DEF:MemAvailMBytes=%GRAPHSOURCE%\rrds\Memory.rrd:MemAvailMBytes:AVERAGE^
+ LINE1:MemCommittedBytes#0000FF88:MemCommittedBytes^
+ LINE1:MemPagesPerSec#FCB514:MemPagesPerSec^
+ LINE1:MemAvailMBytes#FF0000:MemAvailMBytes
+
+ %SOURCE%\tools\rrdtool.exe graph %SOURCE%\pngs\yearlies\IIS.png --start -1y -E^
  DEF:Twos=%GRAPHSOURCE%\rrds\IIS.rrd:Twos:AVERAGE^
  DEF:Threes=%GRAPHSOURCE%\rrds\IIS.rrd:Threes:AVERAGE^
  DEF:Fours=%GRAPHSOURCE%\rrds\IIS.rrd:Fours:AVERAGE^
